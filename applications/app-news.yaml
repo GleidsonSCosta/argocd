@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: news
+  namespace: argocd # Mesmo namespace onde foi criado o ArgoCD.
+  labels:
+    curso: ArgoCD
+spec:
+  destination:
+    namespace: news # Namespace onde a aplicação será publicada.
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s
+    repoURL: https://github.com/GleidsonSCosta/kube-news.git
+    targetRevision: HEAD
+    directory:
+      recurse: true # Permite a recursividadade no projeto.
+      exclude: 'values.yaml' # Permite ignorar algum arquivo o pdiretório.
+  info:
+    - name: Responsável
+      value: Gleidson Costa
