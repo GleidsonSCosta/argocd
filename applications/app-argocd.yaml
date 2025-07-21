@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd
+  namespace: argocd # Mesmo namespace onde foi criado o ArgoCD.
+  labels:
+    curso: ArgoCD
+spec:
+  destination:
+    namespace: argocd # Namespace onde a aplicação será publicada.
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: applications
+    repoURL: https://github.com/GleidsonSCosta/argocd.git
+    targetRevision: HEAD
+    # directory:
+    #   recurse: true # Permite a recursividadade no projeto.
+  info:
+    - name: Responsável
+      value: Gleidson Costa
