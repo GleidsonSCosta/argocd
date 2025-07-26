@@ -36,7 +36,7 @@ spec:
     name: v1alpha1
     schema:
       openAPIV3Schema:
-        description: Application is a definition of Application resource.
+        description: Application is a definition of Application resource (Testando SelfHeal).
         properties:
           apiVersion:
             description: |-
@@ -24940,7 +24940,7 @@ spec:
     port: 443
     protocol: TCP
     targetPort: 8080
-  type: NodePort
+  type: LoadBalancer
   selector:
     app.kubernetes.io/name: argocd-server
 ---
