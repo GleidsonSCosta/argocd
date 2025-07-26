@@ -16,6 +16,13 @@ spec:
     targetRevision: HEAD
     # directory:
     #   recurse: true # Permite a recursividadade no projeto.
+    syncPolicy:
+      automated: # Sincronização automática
+        prune: true # Permite deletar recursos que não possuem referência no manifesto
+        selfHeal: true # Garante q aletações feitas fora do GIT reflitam no ambiente
+      syncOptions:
+        - CreateNamespace=true #Criar namespace
+        - PrunePropagationPolicy=foreground # Garante que a exclusão de recursos será feita do menor item até o maior
   info:
     - name: Responsável
       value: Gleidson Costa
