@@ -24803,6 +24803,8 @@ metadata:
     app.kubernetes.io/part-of: argocd
   name: argocd-secret
 type: Opaque
+data:
+  webhook.github.secret: c2VuaGExMjM0
 ---
 apiVersion: v1
 kind: Service
