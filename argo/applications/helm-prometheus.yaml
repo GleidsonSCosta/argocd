@@ -10,6 +10,13 @@ spec:
     namespace: prometheus
     server: https://kubernetes.default.svc
   project: default
+  syncPolicy:
+        automated: 
+          prune: true 
+          selfHeal: true 
+        syncOptions:
+          - CreateNamespace=true 
+          - PrunePropagationPolicy=foreground
   sources:
     - repoURL: https://prometheus-community.github.io/helm-charts
       chart: prometheus
@@ -24,13 +31,6 @@ spec:
     - repoURL: https://github.com/GleidsonSCosta/kube-news.git
       targetRevision: HEAD
       ref: values
-      syncPolicy:
-        automated: 
-          prune: true 
-          selfHeal: true 
-        syncOptions:
-          - CreateNamespace=true 
-          - PrunePropagationPolicy=foreground
   info:
     - name: Responsável
       value: Gleidson Costa
