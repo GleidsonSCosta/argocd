@@ -11,12 +11,12 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   syncPolicy:
-        automated: 
-          prune: true 
-          selfHeal: true 
-        syncOptions:
-          - CreateNamespace=true 
-          - PrunePropagationPolicy=foreground
+    automated: 
+      prune: true 
+      selfHeal: true 
+    syncOptions:
+      - CreateNamespace=true 
+      - PrunePropagationPolicy=foreground
   sources:
     - repoURL: https://prometheus-community.github.io/helm-charts
       chart: prometheus
