@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: caos
+  namespace: argocd # Mesmo namespace onde foi criado o ArgoCD.
+  labels:
+    curso: ArgoCD
+spec:
+  destination:
+    namespace: caos # Namespace onde a aplicação será publicada.
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: caos
+    repoURL: https://github.com/GleidsonSCosta/kube-news.git
+    targetRevision: HEAD
+    directory:
+      recurse: true # Permite a recursividadade no projeto.
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true 
+    syncOptions:
+      - CreateNamespace=true 
+      - PrunePropagationPolicy=foreground
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: web
+      jsonPointers:
+        - /spec/replicas
+    - group: autoscaling
+      kind: HorizontalPodAutoscaler
+      name: web
+      jsonPointers:
+        - /status/currentReplicas
+        - /status/desiredReplicas
+
+
+  info:
+    - name: Responsável
+      value: Gleidson Costa
