@@ -17,6 +17,13 @@ spec:
     directory:
       recurse: true # Permite a recursividadade no projeto.
       exclude: 'values.yaml' # Permite ignorar algum arquivo o pdiretório.
+    syncPolicy:
+      automated: 
+        prune: true 
+        selfHeal: true 
+      syncOptions:
+        - CreateNamespace=true 
+        - PrunePropagationPolicy=foreground
   info:
     - name: Responsável
       value: Gleidson Costa

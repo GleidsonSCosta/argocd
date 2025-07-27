@@ -24,6 +24,13 @@ spec:
     - repoURL: https://github.com/GleidsonSCosta/kube-news.git
       targetRevision: HEAD
       ref: values
+      syncPolicy:
+        automated: 
+          prune: true 
+          selfHeal: true 
+        syncOptions:
+          - CreateNamespace=true 
+          - PrunePropagationPolicy=foreground
   info:
     - name: Responsável
       value: Gleidson Costa
