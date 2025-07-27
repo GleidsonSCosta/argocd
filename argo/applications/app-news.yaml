@@ -16,7 +16,7 @@ spec:
     targetRevision: HEAD
     directory:
       recurse: true # Permite a recursividadade no projeto.
-      exclude: 'values.yaml' # Permite ignorar algum arquivo o pdiretório.
+      exclude: 'values.yaml'
   syncPolicy:
     automated: 
       prune: true 
