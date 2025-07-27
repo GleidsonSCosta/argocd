@@ -14,8 +14,8 @@ spec:
     path: argo
     repoURL: https://github.com/GleidsonSCosta/argocd.git
     targetRevision: HEAD
-    # directory:
-    #   recurse: true # Permite a recursividadade no projeto.
+    directory:
+      recurse: true # Permite a recursividadade no projeto.
   syncPolicy:
     automated: # Sincronização automática
       prune: true # Permite deletar recursos que não possuem referência no manifesto
