@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project
+  namespace: argocd
+spec:
+  description: Projeto modelo
+  sourceRepos:
+    - "https://github.com/GleidsonSCosta/*"
+  sourceNamespaces:
+    - '*'
+  destinations:
+    - namespace: '!kube*'
+      server: '*'
