@@ -9,7 +9,7 @@ spec:
   destination:
     namespace: news # Namespace onde a aplicação será publicada.
     server: https://kubernetes.default.svc
-  project: default
+  project: my-project
   source:
     path: k8s
     repoURL: https://github.com/GleidsonSCosta/kube-news.git

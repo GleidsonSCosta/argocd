@@ -12,3 +12,12 @@ spec:
   destinations:
     - namespace: '!kube*'
       server: '*'
+  syncWindows:
+    - kind: allow
+      timeZone: "America/Sao_Paulo"
+      schedule: '0 17 * * *'
+      duration: 2h
+      applications:
+      - '*'
+      namespaces:
+      - news
